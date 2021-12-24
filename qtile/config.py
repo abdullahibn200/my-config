@@ -166,7 +166,7 @@ screens = [
                     ),
                 shutdown.Shutdown(
                     countdown_format="{} sec",
-                    countdown_start=31,
+                    countdown_start=16,
                     default_text="Shutdown"
                     ),
             ],
@@ -221,7 +221,7 @@ wmname = "LG3D"
 
 # To set the desktop background
 subprocess.run(
-        'feh --bg-fill ./dracula.png',
+        'feh --bg-fill /home/abdullah/Pictures/Wallpapers/dracula.png',
         shell=True,
         check=False
 )

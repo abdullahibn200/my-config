@@ -1,5 +1,6 @@
 from libqtile import bar
 from libqtile.widget import base
+import libqtile
 import subprocess
 
 # Credits: Thanks to Shunsuke Mie for creating the original widget known as quick_exit (libqtile.widget.quick_exit)
@@ -45,8 +46,8 @@ class Shutdown(base._TextBox):
         self.__call_later_funcs.append(func)
         self.draw()
 
-        if self.countdown == 0:
-            subprocess.run('shutdown', shell=True, check=False)
+        if self.countdown <= 0:
+            subprocess.run('systemctl poweroff', shell=True)
             return
 
     def cmd_trigger(self):
