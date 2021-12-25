@@ -1,2 +1,2 @@
-# my-dotfiles
-This repo contains all of my dotfiles I use
+# my-config
+This repo contains all of my config files & scripts I use
