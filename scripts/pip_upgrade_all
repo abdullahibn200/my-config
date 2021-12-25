@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+""" This script upgrades all pip packages """
+import subprocess  # To run pip
+import re  # To parse the file
+
+parser1 = re.compile(r"([\w+\-*]*)==[\d*\.*]*")
+parser2 = re.compile(r"[\w+\-*]*==([\d*\.*]*)")
+
+subprocess.run("pip3 freeze > requirements.txt", shell=True, check=False)
+
+with open("requirements.txt", "r", encoding="UTF-8") as packages:
+    content = packages.read()
+
+content = content.replace("\n", " ")
+
+parsed1 = parser1.findall(content)
+parsed2 = parser2.findall(content)
+
+with open("requirements.txt", "w", encoding="UTF-8") as packages:
+    for i in range(len(parsed1)):
+        packages.write(f"{parsed1[i]}>={parsed2[i]}\n")
+
+subprocess.run(
+    "pip install -r requirements.txt --upgrade", shell=True, check=False
+)
+subprocess.run("pip install --upgrade pip", shell=True, check=False)
+subprocess.run("rm ./requirements.txt", shell=True, check=False)

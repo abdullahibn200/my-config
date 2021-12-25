@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import subprocess
+
+city_name = input("Please enter the name of your city: ")
+subprocess.run(f"curl wttr.in/{city_name}", shell=True, check=False)
