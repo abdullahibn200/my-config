@@ -1,3 +1,4 @@
+// -- Arkenfox Part --
 /******
 * name: arkenfox user.js
 * date: 8 December 2021
@@ -1420,3 +1421,42 @@ user_pref("browser.urlbar.suggest.quicksuggest", false);
 
 /* END: internal custom pref to test for syntax errors ***/
 user_pref("_user.js.parrot", "SUCCESS: No no he's not dead, he's, he's restin'!");
+
+// -- Lepton Part --
+// ** Theme Related Options ****************************************************
+// userchrome.css usercontent.css activate
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+
+// Proton Enabled #127
+user_pref("browser.proton.enabled", true);
+
+// Proton Tooltip
+user_pref("browser.proton.places-tooltip.enabled", true);
+
+// Fill SVG Color
+user_pref("svg.context-properties.content.enabled", true);
+
+// CSS Color Mix - 88 Above
+user_pref("layout.css.color-mix.enabled", true);
+
+// CSS Blur Filter - 88 Above
+user_pref("layout.css.backdrop-filter.enabled", true);
+
+// Restore Compact Mode - 89 Above
+user_pref("browser.compactmode.show", true);
+
+// about:home Search Bar - 89 Above
+user_pref("browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar", false);
+
+// Browser Theme Based Scheme - Will be activate 95 Above
+// user_pref("layout.css.prefers-color-scheme.content-override", 3);
+
+// ** Useful Options ***********************************************************
+// Integrated calculator at urlbar
+user_pref("browser.urlbar.suggest.calculator", true);
+
+// Integrated unit convertor at urlbar
+// user_pref("browser.urlbar.unitConversion.enabled", true);
+
+// Draw in Titlebar
+// user_pref("browser.tabs.drawInTitlebar", true);
