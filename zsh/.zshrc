@@ -117,6 +117,10 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias vim="nvim"
+alias ls='exa -hl --color=always --grid'
 
 # Calibre
 export CALIBRE_USE_DARK_PALETTE=1
+
+# Neofetch
+neofetch

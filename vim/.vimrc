@@ -9,10 +9,6 @@ set encoding=utf-8
 set clipboard=unnamed
 set shell=zsh
 
-" Colorscheme
-colorscheme dracula
-set background=dark
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -31,7 +27,6 @@ Plugin 'dense-analysis/ale'
 Plugin 'preservim/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'majutsushi/tagbar'
 Plugin 'instant-markdown/vim-instant-markdown'
@@ -44,6 +39,10 @@ Plugin 'lilydjwg/colorizer'
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
+
+" Colorscheme
+colorscheme dracula
+set background=dark
 
 " Enable folding
 set foldmethod=indent
