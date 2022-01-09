@@ -33,7 +33,9 @@ Plugin 'instant-markdown/vim-instant-markdown'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'mhinz/vim-startify'
 Plugin 'lilydjwg/colorizer'
-
+Plugin 'honza/vim-snippets'
+Plugin 'lukas-reineke/indent-blankline.nvim'
+Plugin 'Pocco81/TrueZen.nvim'
 " ...
 
 " All of your Plugins must be added before the following line
