@@ -118,6 +118,7 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias vim="nvim"
 alias ls='exa -hl --color=always --grid'
+alias cat='bat -p'
 
 # Calibre
 export CALIBRE_USE_DARK_PALETTE=1

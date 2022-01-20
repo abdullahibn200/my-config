@@ -36,6 +36,7 @@ Plugin 'lilydjwg/colorizer'
 Plugin 'honza/vim-snippets'
 Plugin 'lukas-reineke/indent-blankline.nvim'
 Plugin 'Pocco81/TrueZen.nvim'
+Plugin 'tpope/vim-eunuch'
 " ...
 
 " All of your Plugins must be added before the following line

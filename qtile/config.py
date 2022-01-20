@@ -26,12 +26,13 @@
 
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 import subprocess
+import os
 import shutdown
 
 mod = "mod4"
@@ -84,8 +85,8 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # -- Rofi Section --
-   # Key([mod], "r", lazy.spawncmd(),
-   #     desc="Spawn a command using a prompt widget"),
+    # Key([mod], "r", lazy.spawncmd(),
+    #     desc="Spawn a command using a prompt widget"),
     Key(
         [mod], "r",
         lazy.spawn('rofi -show combi'),
@@ -151,7 +152,7 @@ screens = [
                 #     name='prompt',
                 #     prompt='Execute: '),
                 widget.Sep(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.Clock(format='%d/%m/%Y %a %I:%M %p'),
                 widget.Sep(),
                 widget.CheckUpdates(
                     distro="Arch_checkupdates",
@@ -225,3 +226,9 @@ subprocess.run(
         shell=True,
         check=False
 )
+
+# To aurostart sertain apps
+@hook.subscribe.startup
+def autostart():
+    home = os.path.expanduser('~')
+    subprocess.Popen([home + '/.config/qtile/autostart.sh'])
