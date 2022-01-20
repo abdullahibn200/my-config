@@ -227,7 +227,7 @@ subprocess.run(
         check=False
 )
 
-# To aurostart sertain apps
+# To aurostart certain apps
 @hook.subscribe.startup
 def autostart():
     home = os.path.expanduser('~')
