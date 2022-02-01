@@ -124,4 +124,4 @@ alias cat='bat -p'
 export CALIBRE_USE_DARK_PALETTE=1
 
 # Neofetch
-neofetch
+neofetch --ascii_distro manjaro_small
