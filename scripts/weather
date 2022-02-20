@@ -2,5 +2,11 @@
 # -*- coding: utf-8 -*-
 import subprocess
 
-city_name = input("Please enter the name of your city: ")
-subprocess.run(f"curl wttr.in/{city_name}", shell=True, check=False)
+city_name = input("Please enter the name of your city: ").split()
+
+if len(city_name) > 1:
+    city_name = '%20'.join(city_name)
+else:
+    city_name = ''.join(city_name)
+
+subprocess.run(f"curl wttr.in/{city_name}", shell=True)
