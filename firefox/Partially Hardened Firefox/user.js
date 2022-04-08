@@ -1,21 +1,3 @@
-//
-/* You may copy+paste this file and use it as it is.
- *
- * If you make changes to your about:config while the program is running, the
- * changes will be overwritten by the user.js when the application restarts.
- *
- * To make lasting changes to preferences, you will have to edit the user.js.
- */
-
-/****************************************************************************
- * BetterFox                                                                *
- * "Ad meliora."                                                            *
- * version: January 2022                                                    *
- * url: https://github.com/yokoffing/Better-Fox                             *
- * license: https://github.com/yokoffing/Better-Fox/blob/master/LICENSE     *
- * README: https://github.com/yokoffing/Better-Fox/blob/master/README.md    *
-****************************************************************************/
-
 /****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
