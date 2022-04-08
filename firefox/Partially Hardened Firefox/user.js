@@ -48,9 +48,9 @@ user_pref("browser.ssl_override_behavior", 1);
 user_pref("security.tls.enable_0rtt_data", false);
 
 /** DISK AVOIDANCE ***/
-user_pref("browser.cache.disk.enable", false);
-user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
-user_pref("media.memory_cache_max_size", 65536);
+// user_pref("browser.cache.disk.enable", true);
+// user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
+// user_pref("media.memory_cache_max_size", 1264);
 user_pref("browser.sessionstore.privacy_level", 2);
 user_pref("browser.shell.shortcutFavicons", false);
 user_pref("browser.pagethumbnails.capturing_disabled", true);
@@ -302,7 +302,7 @@ user_pref("apz.overscroll.enabled", true); /*elastic overscroll*/
 ****************************************************************************/
 
 // Proton Enabled #127 || Removed at 97 #328 (Maintained for compatibility with ESR)
-user_pref("browser.proton.enabled", true);
+// user_pref("browser.proton.enabled", true);
 
 // Proton Tooltip
 user_pref("browser.proton.places-tooltip.enabled", true);
@@ -331,4 +331,16 @@ user_pref("browser.urlbar.suggest.calculator", true);
 
 /*******************************************************************************
  * END: LEPTON
+*******************************************************************************/
+
+
+/******************************************************************************
+ * START: OTHER TWEAKS
+******************************************************************************/
+
+// Enable GTK overlay scrollbars
+user_pref("widget.gtk.overlay-scrollbars.enabled", true)
+
+/*******************************************************************************
+ * END: OTHER TWEAKS
 *******************************************************************************/
