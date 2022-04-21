@@ -1,27 +1,51 @@
+" Use VIM settings rather than Vi settings
+" Note: Not needed in neovim
+" set nocompatible
+
+" Show line numbers
 set nu
+
+" Change tabs to space
 set expandtab
+
+" The spaces a level of indentation is worth
 set shiftwidth=4
+
+" The spaces a \t(tab) character is worth
 set tabstop=4
-set virtualedit=onemore
+
+" Allow the cursor to move just past the end of the line
+set  virtualedit=onemore
+
+" Enable syntax highlighting
 syntax on
-filetype off
+
+" For the file encoding
 set encoding=utf-8
-set clipboard=unnamed
+
+" For cross plateform clipboard
+set clipboard^=unnamed,unnamedplus
+
+" For the default shell
 set shell=zsh
+
+" Enabling enhanced mode for commandline operations
+set wildmenu
+
+" Font & font size(For gui's like gvim)
+set guifont=Iosevka\ Nerd\ Font:h8
+
+" Required by Vundle
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Vundle(let Vundle manage Vundle)
+Plugin 'VundleVim/Vundle.vim'
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-
+" <-- Vundle Plugins(Add plugins below) -->
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'dense-analysis/ale'
 Plugin 'preservim/nerdtree'
@@ -35,36 +59,32 @@ Plugin 'lilydjwg/colorizer'
 Plugin 'honza/vim-snippets'
 Plugin 'lukas-reineke/indent-blankline.nvim'
 Plugin 'Pocco81/TrueZen.nvim'
-" ...
+Plugin 'Konfekt/FastFold'
+" <-- Vundle Plugins(Add plugins above) -->
 
-" All of your Plugins must be added before the following line
 call vundle#end()
+
+" Required by Vundle
 filetype plugin indent on
 
 " Colorscheme
 colorscheme dracula
-set background=dark
 
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-" Python Syntax
-let python_highlight_all=1
-syntax on
+" Code folding
+set foldmethod=syntax
 
 " Airline
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#ale#enabled=1
 let g:airline_theme='dracula'
-let g:airline_powerline_fonts = 1 
+let g:airline_powerline_fonts=1
 
 "ALE
 let g:ale_linters = {
 \   'python': ['flake8'],
 \}
 let g:ale_disable_lsp = 1
-let g:airline#extensions#ale#enabled = 1
 
 " Tagbar
 let g:tagbar_type_python = {
@@ -80,19 +100,13 @@ let g:tagbar_type_python = {
         \ 'l:local:0:0'
     \ ],
 \ }
-nmap <F8> :TagbarToggle<CR>
 
-" Auto bracket & quote matching
-inoremap ( ()<Esc>i
-inoremap { {}<Esc>i
-inoremap {<CR> {<CR>}<Esc>O
-inoremap [ []<Esc>i
-inoremap < <><Esc>i
-inoremap ' ''<Esc>i
-inoremap " ""<Esc>i
+" nmap <F8> :TagbarToggle<CR>
 
-" >> coc.nvim >>
-" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" <-- coc.nvim settings -->
+
+" Note: This part is copied from coc.nvim github page
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -160,12 +174,10 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
+  if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    call feedkeys('K', 'in')
   endif
 endfunction
 
@@ -197,6 +209,9 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
+
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
@@ -224,7 +239,7 @@ nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocActionAsync('format')
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -254,7 +269,5 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-" << coc.nvim <<
 
-" Neovim terminal
-tnoremap <Esc> <C-\><C-n>
+" <-- coc.nvim settings -->
