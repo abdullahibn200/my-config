@@ -33,7 +33,6 @@ from libqtile.utils import guess_terminal
 
 import subprocess
 import os
-import shutdown
 
 mod = "mod4"
 alt = "mod1"
@@ -125,9 +124,21 @@ layouts = [
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.RatioTile(),
+    layout.RatioTile(
+        border_focus="#44475a",
+        border_focus_stack=['#44475a', '#282a36'],
+        border_width=2,
+        border_normal="#282a36",
+        margin=3
+        ),
     # layout.Tile(),
-    # layout.TreeTab(),
+    layout.TreeTab(
+        active_bg="#6272a4",
+        active_fg="#f8f8f2",
+        bg_color="#282a36",
+        font="Iosevka",
+        fontsize=12
+        ),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
@@ -162,13 +173,11 @@ screens = [
                 widget.CapsNumLockIndicator(),
                 widget.Sep(),
                 widget.Systray(),
-                widget.Volume(
-                    fmt='Vol: {}'
-                    ),
-                shutdown.Shutdown(
-                    countdown_format="{} sec",
+#                widget.Backlight(),
+                widget.QuickExit(
+                    countdown_format="{} second(s)",
                     countdown_start=16,
-                    default_text="Shutdown"
+                    default_text="Logout"
                     ),
             ],
             24,
